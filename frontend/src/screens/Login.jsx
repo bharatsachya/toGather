@@ -123,7 +123,7 @@ export default function Login() {
           <div className="form-check">
             <input
               className="form-check-input"
-              type="radiobox"
+              type="radio"
               name="user"
               id="exampleRadios2"
               value="user"
@@ -143,7 +143,7 @@ export default function Login() {
             Submit
           </button>
 
-          <Link to="/createuser" className="m-3 btn btn-danger">
+          <Link to="/signup" className="m-3 btn btn-danger">
             Have Not Registered
           </Link>
         </form>
@@ -151,3 +151,9 @@ export default function Login() {
     </>
   );
 }
+
+
+
+
+
+

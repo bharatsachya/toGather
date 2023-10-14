@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import '../App.css'
 
 export default function Signup() {
+  const navigate = useNavigate()
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -62,11 +64,10 @@ export default function Signup() {
   function onChange(event) {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   }
-
   return (
     <>
       <div className="container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} class='signup-form'>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
@@ -153,12 +154,12 @@ export default function Signup() {
                 onChange={(event) => {
                   setCredentials({ ...credentials, type: event.target.value });
                 }}
+
               />
             </div>
           </fieldset>
 
           <button type="submit" className="m-3 btn btn-success">
-            Submit
           </button>
 
           <Link to="/login" className="m-3 btn btn-danger">
