@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Login() {
     event.preventDefault();
     const { email, password } = loginCredentials;
 
-    if (!email || !password) {
+    if (!email || !password ) {
       alert("Please fill in the form completely");
     } else {
       if (loginCredentials.type === "user") {
@@ -30,8 +31,9 @@ export default function Login() {
               console.log(JSON.parse(localStorage.getItem("currentUser")));
               localStorage.setItem("authToken", result.data.AuthToken);
               console.log(localStorage.getItem("authToken"));
+              toast.success("Succesfully logged in as helper");
             } else {
-              alert("Register First");
+              toast.error("register first");
             }
           });
       } else if (loginCredentials.type === "ngo") {
@@ -47,8 +49,9 @@ export default function Login() {
               console.log(JSON.parse(localStorage.getItem("currentUser")));
               localStorage.setItem("authToken", result.data.AuthToken);
               console.log(localStorage.getItem("authToken"));
+              toast.success("Succesfully logged in");
             } else {
-              alert("Register First");
+              toast.error("you need to register first");
             }
           });
       }
@@ -92,7 +95,7 @@ export default function Login() {
             <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
-            <input
+            <input 
               type="password"
               className="form-control"
               id="exampleInputPassword1"
@@ -106,15 +109,11 @@ export default function Login() {
             <input
               className="form-check-input"
               type="radio"
-              name="ngo"
+              name="type"
               id="exampleRadios1"
               value="ngo"
-              onChange={(event) => {
-                setLoginCredentials({
-                  ...loginCredentials,
-                  type: event.target.value,
-                });
-              }}
+              defaultChecked ={loginCredentials.value ==="user"}
+              onChange={onChange}
             />
             <label className="form-check-label" htmlFor="exampleRadios1">
               NGO
@@ -124,36 +123,21 @@ export default function Login() {
             <input
               className="form-check-input"
               type="radio"
-              name="user"
+              name="type"
               id="exampleRadios2"
               value="user"
-              onChange={(event) => {
-                setLoginCredentials({
-                  ...loginCredentials,
-                  type: event.target.value,
-                });
-              }}
+              defaultChecked ={loginCredentials.value ==="user"}
+              onChange={onChange}
             />
             <label className="form-check-label" htmlFor="exampleRadios2">
               User
             </label>
           </div>
-
-          <button type="submit" className="m-3 btn btn-success">
-            Submit
+          <button type="submit" className="m-3 btn btn-success" data-bs-dismiss="modal">
+            submit
           </button>
-
-          <Link to="/signup" className="m-3 btn btn-danger">
-            Have Not Registered
-          </Link>
         </form>
       </div>
     </>
   );
 }
-
-
-
-
-
-

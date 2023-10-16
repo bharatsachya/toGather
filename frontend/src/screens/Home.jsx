@@ -1,16 +1,62 @@
-import React from "react";
-import SiteHeader from "../components/Header.jsx"; 
-import PrimaryNav from '../components/primaryNav.jsx'
-import SiteFooter from '../components/SiteFooter.jsx'
-import SecondaryNav from '../components/secondaryNav.jsx';
-import DocumentLinks from '../components/DocumentsLinks.jsx'
+import React, { useState } from 'react'
+import "../style/home.css"
 export default function Home() {
-  return <div>
-    <h1>Home</h1>
-    <PrimaryNav/>
-    <SiteHeader/>
-    <SecondaryNav/>
-    <DocumentLinks/>
-    <SiteFooter/>
-  </div>
+
+    return (
+        <>
+            <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div className="carousel-inner">
+                    <div className="carousel-item active">
+                        <img src="logo.png" className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                            <button className='btn btn-primary'>Know more</button>
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="logo.png" className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                            <button className='btn btn-primary'>Know more</button>
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="logo.png" className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                            <button className='btn btn-primary'>Know more</button>
+                        </div>
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div className='d-flex align-items-center justify-content-center'>
+                <img style={{ width: "50px", height: "50px" }} src='gif2.gif' />
+
+            </div>
+
+            <div className="helping-areas">
+                <h1>education</h1>
+                <h1>health</h1>
+                <h1>livelihood</h1>
+            </div>
+
+        </>
+    )
 }

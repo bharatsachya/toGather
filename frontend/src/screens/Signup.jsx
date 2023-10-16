@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import '../App.css'
+import toast from "react-hot-toast";
 
 export default function Signup() {
   const navigate = useNavigate()
@@ -28,6 +28,7 @@ export default function Signup() {
             location,
             type,
           })
+          toast.success("details submitted successfully")
           .then((result) => {
             console.log(result);
           })
@@ -43,6 +44,7 @@ export default function Signup() {
             location,
             type,
           })
+          toast.success("details submitted successfully")
           .then((result) => {
             console.log(result);
           })
@@ -61,9 +63,11 @@ export default function Signup() {
     console.log(credentials);
   }
 
+  
   function onChange(event) {
     setCredentials({ ...credentials, [event.target.name]: event.target.value });
   }
+
   return (
     <>
       <div className="container">
@@ -73,6 +77,7 @@ export default function Signup() {
               Name
             </label>
             <input
+              placeholder="name"
               type="text"
               className="form-control"
               name="name"
@@ -86,6 +91,7 @@ export default function Signup() {
               Email address
             </label>
             <input
+              placeholder="someone@gmail.com"
               type="email"
               className="form-control"
               id="exampleInputEmail1"
@@ -103,6 +109,7 @@ export default function Signup() {
               Password
             </label>
             <input
+              placeholder="Always use a strong password"
               type="password"
               className="form-control"
               id="exampleInputPassword1"
@@ -117,6 +124,7 @@ export default function Signup() {
               Address
             </label>
             <input
+              placeholder="Your complete address"
               type="text"
               className="form-control"
               id="Address"
@@ -133,12 +141,11 @@ export default function Signup() {
               <input
                 className="form-check-input"
                 type="radio"
-                name="user"
+                name="type"
                 value="user"
-                id="flexRadioDefault1"
-                onChange={(event) => {
-                  setCredentials({ ...credentials, type: event.target.value });
-                }}
+                id="type"
+                defaultChecked ={credentials.value ==="user"}
+                onChange={onChange}
               />
             </div>
             <div className="form-check">
@@ -148,23 +155,18 @@ export default function Signup() {
               <input
                 className="form-check-input"
                 type="radio"
-                name="flexRadioDefault"
+                name="type"
                 value="ngo"
                 id="flexRadioDefault2"
-                onChange={(event) => {
-                  setCredentials({ ...credentials, type: event.target.value });
-                }}
-
+                defaultChecked={ credentials.value === "ngo"}
+                onChange={onChange}
               />
             </div>
           </fieldset>
-
-          <button type="submit" className="m-3 btn btn-success">
+          <button type="submit" className="m-3 btn btn-success" data-bs-dismiss="modal">
+            submit
           </button>
 
-          <Link to="/login" className="m-3 btn btn-danger">
-            Already A User
-          </Link>
         </form>
       </div>
     </>
