@@ -1,0 +1,37 @@
+body{
+    margin-top: 10%;
+    background-color: #888;
+}
+
+.areas{
+    border:3px solid #5EA777;
+    max-width: 40%;
+    height: fit-content;
+}
+
+.areas-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media screen and (max-width: 576px) {
+    /* Mobile view */
+    .areas {
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 577px) and (max-width: 992px) {
+    /* Tablet view */
+    .areas {
+      max-width: 75%;
+    }
+  }
+  
+  @media screen and (min-width: 993px) {
+    /* Laptop view and larger */
+    .areas {
+      max-width: 40%;
+    }
+  }

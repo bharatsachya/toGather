@@ -21,6 +21,7 @@ const database = client.db(dbName);
 const userDetailsCollection = database.collection(userDetails_collection);
 const ngoDetailsCollection = database.collection(ngoDetails_collection);
 
+
 async function insertUser(newUser) {
   await client.connect().then(() => {
     console.log("DB connected successfully");
@@ -33,6 +34,7 @@ async function insertUser(newUser) {
     console.log("Error while inserting" + err);
   }
 }
+
 
 async function insertNGO(newNGO) {
   await client.connect().then(() => {
@@ -47,6 +49,7 @@ async function insertNGO(newNGO) {
   }
 }
 
+
 async function findUser(query) {
   await client.connect().then(() => {
     console.log("DB connected successfully");
@@ -60,6 +63,8 @@ async function findUser(query) {
     console.log("Something went wrong trying to find the documents:" + err);
   }
 }
+
+
 async function findNGO(query) {
   await client.connect().then(() => {
     console.log("DB connected successfully");
@@ -74,6 +79,7 @@ async function findNGO(query) {
   }
 }
 
+
 async function generateAuthToken(newuser) {
   try {
     const token = await jwt.sign(
@@ -87,6 +93,7 @@ async function generateAuthToken(newuser) {
     console.log(error);
   }
 }
+
 
 router.route("/createuser").post(async (req, res) => {
   var encryptedPassword = await bcrypt.hash(req.body.password, saltRounds);
@@ -113,6 +120,7 @@ router.route("/createuser").post(async (req, res) => {
 
   insertUser(userSave);
 });
+
 
 // the ngo that has to be saved in ngo db
 router.route("/createngo").post(async (req, res) => {
@@ -141,6 +149,7 @@ router.route("/createngo").post(async (req, res) => {
   insertNGO(NGOSave);
 });
 
+
 router.post("/loginuser", async (req, res) => {
   const { email, password } = req.body;
   const findQuery = { email: email };
@@ -166,6 +175,7 @@ router.post("/loginuser", async (req, res) => {
     res.json({ Success: "false" });
   }
 });
+
 
 router.post("/loginngo", async (req, res) => {
   const { email, password } = req.body;

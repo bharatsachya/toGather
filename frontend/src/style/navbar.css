@@ -1,0 +1,149 @@
+
+/* ---------navbar text and logo------ */
+
+.logo{
+    width: 25vh ;
+    height: 15.5vh ;
+}
+
+.navbar{
+    background-color: white;
+    border-bottom: 2px solid #45b1e7;
+    /* border-bottom: 2px solid #83643E; */
+    /* border-bottom: 2px solid #5EA777; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.navbar-scrolled {
+    /* background-color: #5EA777; */
+    background-color: #45b1e7;
+    color: whitesmoke;
+    transition: .5s ease-in-out;
+    opacity: .9;
+  }
+
+.ngo-name{
+    font-size: 60px;
+    text-decoration: none;
+    text-align: center;
+    /* color: #5EA777; */
+    color: #45b1e7;
+    transition: .5s ease-in-out;
+
+}
+
+.text-scrolled{
+    color: white;
+    transition: .5s ease-in-out;
+}
+
+.text-scrolled:hover{
+    color: white;
+}
+
+.nav-item{
+    transition: .5s ease-in-out;
+    /* color: #45b1e7; */
+    color: black;
+
+}
+
+.nav-item:hover{
+    transform: translateY(-5px);
+    transition: .5s ease-in-out;
+}
+
+/* -------buttons----- */
+
+.btn{
+    transition: .5s ease-in-out;
+    /* color: #45b1e7; */
+    color: black;
+
+}
+.custom-btn{
+    border: 2px solid #45b1e7;
+    transition: .5s ease-in-out;
+    color: black;
+}
+
+.custom-btn:hover{
+    background-color: #45b1e7;
+    color: white;
+}
+
+.button-scrolled{
+    color: white;
+    transition: .5s ease-in-out;
+    border: 2px solid white;
+}
+
+.button-scrolled:hover{
+    color: #45b1e7;
+    background-color: white;
+}
+
+.search-btn{
+    border:1px solid #45b1e7;
+}
+
+.acc-buttons{
+    transition: .5s ease-in-out;
+
+}
+.acc-buttons:hover{
+    font-weight: 600;
+    color: #45b1e7;
+    transition: .5s ease-in-out;
+
+}
+
+
+/* -------------media queries------- */
+
+@media screen and (max-width: 576px) {
+    /* Mobile view */
+    .logo{
+        width: 25vh ;
+        height: 15.5vh ;
+    }
+  }
+  
+  @media screen and (min-width: 577px) and (max-width: 992px) {
+    /* Tablet view */
+    .logo{
+        width: 18vh ;
+        height: 12vh ;
+    }
+
+    .container-fluid{
+        margin: 10px !important;
+    }
+
+    .nav-item{
+        margin-left: 15px !important;
+    }
+
+    .nav-right{
+        overflow: hidden;
+    }
+    /* .nav-right-top{
+        transform: translateY(-60px);
+        transition: .5s ease-in-out;
+        display: none;
+    }
+    .nav-right-bottom{
+        transform: translateY(-30px);
+    } */
+  }
+  
+  @media screen and (min-width: 993px) {
+    /* Laptop view and larger */
+    .logo{
+        width: 25vh ;
+        height: 15.5vh ;
+    }
+  }
